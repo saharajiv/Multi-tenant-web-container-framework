@@ -1,0 +1,51 @@
+import com.rsaha.dynamic.container.task.SourceFilesCompiler;
+import java.io.File;
+
+
+
+
+
+public String printIt() {
+     int a = 1;
+     
+     int b = 3;
+     float c = (float)1.0;
+     System.out.println( "HelloWorld - Java Dynamic Class written by Rajib. More are to come...\n");
+     //printSomethingElse("this is wonderful"); 
+     if(a==c){
+     	System.out.println("a and c are same");
+     }else{
+     	System.out.println("They are not same");
+     }
+     print("Everthing's fine , alright?");
+     return "hey wonderful!";
+ }
+ 
+ public void printSomethingElse(String st) {
+     	System.out.println( "Here's something more to it. ");     
+     	System.out.println(st); 
+ }
+ 
+ public void runContainer3(){
+
+		ExecutorService executorService = Executors.newFixedThreadPool(3);
+		List<File> fileToBeCompiled = new ArrayList<>(Arrays.asList( new File("src/main/resource/DynamicJavaFile")));
+		//while(true){
+			//try {
+				executorService.submit(new SourceFilesCompiler(fileToBeCompiled));
+			//} catch (InterruptedException e) {
+			//	System.out.println(e.getMessage());
+			//} catch (ExecutionException e) {
+			//	System.out.println(e.getMessage());
+			//}
+		//}	
+		// do not want to stop the application
+		executorService.shutdown();
+	}
+ 
+ 
+
+
+ 
+ 
+ 
